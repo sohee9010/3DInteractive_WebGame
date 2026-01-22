@@ -23,6 +23,16 @@ emojiIndicator.innerText = '🦝'; // 너구리 이모티콘
 // 게임 초기화
 async function initializeGame() {
     try {
+        // start.html에서 시작하지 않은 경우 start.html로 리다이렉트
+        const gameStarted = sessionStorage.getItem('gameStarted');
+        if (!gameStarted) {
+            console.log("직접 접근 감지 - start.html로 리다이렉트");
+            window.location.href = 'start.html';
+            return;
+        }
+        // 플래그 초기화 (게임 시작됨)
+        sessionStorage.removeItem('gameStarted');
+        
         // Scene 초기화
         initializeScene();
         

@@ -233,6 +233,8 @@
         backgroundMusic.pause();
         backgroundMusic.currentTime = 0;
       }
+      // 게임 시작 플래그 설정
+      sessionStorage.setItem('gameStarted', 'true');
       if (whistleSound) {
         whistleSound.currentTime = 0;
         whistleSound.play().then(() => {
